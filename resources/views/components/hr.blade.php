@@ -1,0 +1,1 @@
+<hr class="mt-4 w-full bg-slate-400 h-1 rounded-full shadow-sm border-none">

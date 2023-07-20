@@ -899,6 +899,7 @@ export default {
             50: "50",
         },
         extend: {
+            backgroundColor: ["active"],
             colors: {
                 "biru-1": "#0E2954",
                 "biru-2": " #1F6E8C",
@@ -937,6 +938,5 @@ export default {
             },
         },
     },
-
     plugins: [forms, typography],
 };

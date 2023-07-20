@@ -1,19 +1,21 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
+        <x-slot name="title">
             <a href="/" class="flex justify-center w-full text-2xl text-center text-gray-500">
                 FORGOT PASSWORD
             </a>
+            <hr>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a
+            password reset link that will allow you to choose a new one.') }}
         </div>
 
         @if (session('status'))
-            <div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
+            {{ session('status') }}
+        </div>
         @endif
 
         <x-validation-errors class="mb-4" />
@@ -23,7 +25,8 @@
 
             <div class="block">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="herman@gmail.com" />
+                <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required
+                    autofocus autocomplete="username" placeholder="herman@gmail.com" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -32,7 +35,8 @@
                 </x-button>
             </div>
             <div class="flex items-center justify-end mt-4">
-                <a class="text-sm underline rounded-md text-biru-3 hover:text-biru-2 focus:outline-none focus:ring-2 focus:ring-offset-2 " href="{{ route('login') }}">
+                <a class="text-sm underline rounded-md text-biru-3 hover:text-biru-2 focus:outline-none focus:ring-2 focus:ring-offset-2 "
+                    href="{{ route('login') }}">
                     {{ __('Back to Login') }}
                 </a>
             </div>
