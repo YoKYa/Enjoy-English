@@ -1,6 +1,7 @@
 <div>
     {{-- Breadcrumbs --}}
     {{ Breadcrumbs::render('admin') }}
+    @push('pageTitle', 'Admin - ')
     {{-- Content --}}
     <div class="mb-4 border-2 border-gray-500 shadow rounded-lg h-auto p-8 grid grid-cols-5 gap-4">
         <x-topic href="{{ route('admin.users') }}">

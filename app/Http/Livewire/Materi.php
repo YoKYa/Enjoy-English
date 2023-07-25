@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 class Materi extends Component
 {
-    public function mount($slug) 
+    public function mount($id) 
     {
-        dd($slug);
+        dd($id);
     }
     public function render()
     {

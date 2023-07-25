@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @push('pageTitle', 'Forgot Password - ')
     <x-authentication-card>
         <x-slot name="title">
             <a href="/" class="flex justify-center w-full text-2xl text-center text-gray-500">

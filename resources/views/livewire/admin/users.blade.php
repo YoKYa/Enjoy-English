@@ -1,6 +1,7 @@
 <div>
     {{-- Breadcrumbs --}}
-    {{ Breadcrumbs::render('admin.users') }}
+    @push('pageTitle', 'Users - ')
+    {{ Breadcrumbs::render('users') }}
     {{-- Content --}}
     <div class="card ">
         <header class="card-header noborder">
@@ -114,8 +115,6 @@
                             </td>
                         </tr>
                         @endforeach
-
-
                     </tbody>
                 </table>
             </div>

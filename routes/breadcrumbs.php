@@ -19,10 +19,13 @@ Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
     $trail->parent('admin');
     $trail->push('Users', route('admin.users'));
 });
+Breadcrumbs::for('admin.materi', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('admin');
+    $trail->push('materi', route('admin.materi', $id));
+});
 
-
-// // Home > Blog > [Category]
-// Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
-//     $trail->parent('blog');
-//     $trail->push($category->title, route('category', $category));
-// });
+// Admin > Topic > Materi > lessons
+Breadcrumbs::for('admin.lessons', function (BreadcrumbTrail $trail, $slug) {
+    $trail->parent('admin');
+    $trail->push('lessons', route('admin.lessons', $slug));
+});

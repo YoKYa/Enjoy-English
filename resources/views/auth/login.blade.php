@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @push('pageTitle', 'Login - ')
     <x-authentication-card>
         <x-slot name="title" class="block">
             <a href="/login" class="flex justify-center w-full text-2xl text-center text-gray-500">

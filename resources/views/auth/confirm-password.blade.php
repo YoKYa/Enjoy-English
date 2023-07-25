@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @push('pageTitle', 'Confirm Password - ')
     <x-authentication-card>
         <x-slot name="logo">
             <a href="/" class="flex justify-center w-full text-2xl text-center text-gray-500">

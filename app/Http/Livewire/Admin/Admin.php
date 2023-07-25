@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Admin extends Component
 {
+    
     public function mount()
     {
         if (Auth::user()->roles == 'user') {
