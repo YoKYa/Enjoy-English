@@ -18,6 +18,7 @@
 	<link rel="icon" type="image/x-icon" href="{{ asset('/logo/logo_enjoy_eng.png') }}">
 	{{-- Script --}}
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
+	<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 
 	{{-- Style --}}
 	@livewireStyles

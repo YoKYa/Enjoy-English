@@ -29,3 +29,8 @@ Breadcrumbs::for('admin.lessons', function (BreadcrumbTrail $trail, $slug) {
     $trail->parent('admin');
     $trail->push('lessons', route('admin.lessons', $slug));
 });
+// Admin > Topic > Materi > Practice
+Breadcrumbs::for('admin.practice', function (BreadcrumbTrail $trail, $slug) {
+    $trail->parent('admin');
+    $trail->push('practice', route('admin.practice', $slug));
+});

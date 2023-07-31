@@ -17,4 +17,8 @@ class Materi extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+    public function practices()
+    {
+        return $this->hasMany(Practice::class);
+    }
 }
