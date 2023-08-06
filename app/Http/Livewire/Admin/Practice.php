@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Livewire\{Component, WithFileUploads};
-use App\Models\{Materi, Pquestion, Practice as ModelsPractice};
+use App\Models\{Materi, Panswer, Pquestion, Practice as ModelsPractice};
 
 class Practice extends Component
 {
@@ -44,8 +44,12 @@ class Practice extends Component
         }else{
             $practice = ModelsPractice::find($id);
         }
-        $practice->delete();  
+       try {
+         $practice->delete();  
         $this->loadData($this->materi->slug);
+       } catch (\Throwable $th) {
+        //throw $th;
+       }
     }
     public function deletePicture() {
         $this->data = null;
@@ -72,10 +76,10 @@ class Practice extends Component
     public function saveQuestion(){
         if ($this->type == 'picture') {
             $this->data = $this->data->storeAs(
-             'pquestion/picture', Str::random(8).'.png');
+             '/pquestion/picture', Str::random(8).'.png');
         }else if($this->type == 'audio'){
             $this->data = $this->data->storeAs(
-             'pquestion/audio', Str::random(8).'.mp3');
+             '/pquestion/audio', Str::random(8).'.mp3');
         }
         Validator::make([
             'line' => $this->line,
@@ -100,6 +104,25 @@ class Practice extends Component
         $this->loadData($this->materi->slug);
         $this->practice = ModelsPractice::find($this->practice->id);
     }
-
+    public function checkAnswer($id, $type) {
+        $data = Panswer::where('practice_id', $id)->get()->first(); 
+        if ($type == "speaking") {
+            return true;
+        }else{
+            if ($data == null) {
+                return false;
+            }else{
+                if ($data->answer == null) {
+                    if ($data->type == 2) {
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return true;
+                }
+            }
+        }
+    }
 
 }

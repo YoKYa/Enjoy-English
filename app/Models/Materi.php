@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Materi extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'order', 'topic_id','slug', 'description'];
+    protected $fillable = ['title','publish', 'order', 'topic_id','slug', 'description'];
     public function topic()
     {
         return $this->belongsTo(Topic::class);
@@ -20,5 +20,9 @@ class Materi extends Model
     public function practices()
     {
         return $this->hasMany(Practice::class);
+    }
+    public function tests()
+    {
+        return $this->hasMany(Test::class);
     }
 }

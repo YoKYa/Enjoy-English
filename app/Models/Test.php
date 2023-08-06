@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Practice extends Model
+class Test extends Model
 {
-    protected $fillable = ['materi_id', 'type'];
     use HasFactory;
+    protected $fillable = ['materi_id'];
     public function materi()
     {
         return $this->belongsTo(Materi::class);
     }
-    public function pquestion()
+     public function question()
     {
-        return $this->hasMany(Pquestion::class);
+        return $this->hasMany(Question::class);
     }
-        public function panswer()
+    public function answer()
     {
-        return $this->hasMany(Panswer::class);
+        return $this->hasMany(Answer::class);
     }
 }

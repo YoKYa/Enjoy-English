@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('topic_id');
             $table->unsignedInteger('order')->default(1);
+            $table->boolean('publish')->default(false);
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
             
             $table->timestamps();

@@ -17,7 +17,7 @@ Route::middleware([
     });
     // Route User
     Route::get('/topics', Topics::class)->name('topics');
-    Route::get('/topic/{id}', Materi::class)->name('materi');
+    Route::get('/topics/{id}', Materi::class)->name('materi');
     
     // Route Admin
     Route::prefix('admin')->group(function () {

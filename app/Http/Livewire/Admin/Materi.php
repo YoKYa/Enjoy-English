@@ -20,6 +20,7 @@ class Materi extends Component
     public $addMateriModal = false;
     public $editMateriModal = false;
     public $deleteMateriModal = false;
+    public $publishMateriModal = false;
     public function mount(Topic $id) 
     {
         $this->topic = $id;
@@ -37,6 +38,8 @@ class Materi extends Component
             $this->editMateriModal = !$this->editMateriModal;
         }else if($type =='delete') {
            $this->deleteMateriModal = !$this->deleteMateriModal;
+        }else if($type =='publish') {
+           $this->publishMateriModal = !$this->publishMateriModal;
         }else{
             dd("Invalid Modal Type");
         }
@@ -76,6 +79,8 @@ class Materi extends Component
             $this->order++;
         }else if($type == 'delete'){
             $this->modalMateri('delete');
+        }else if($type == 'publish'){
+            $this->modalMateri('publish');
         }
         $this->materis = ModelsMateri::where('topic_id', $this->topic->id)->orderBy('order', 'Asc')->get();
     }
@@ -105,6 +110,12 @@ class Materi extends Component
         $this->loadMateri('edit');
     }
 
+    // Publish
+    public function publishMateri($id){
+        $this->materi = ModelsMateri::find($id);
+        $this->title =  $this->materi->title;
+        $this->modalMateri('publish');
+    }
     // Delete
     public function deleteMateri($id){
         $this->materi = ModelsMateri::find($id);
@@ -115,5 +126,12 @@ class Materi extends Component
         $this->materi->delete();
         session()->flash('message', 'Materi Delete Successfully');
         $this->loadMateri('delete');
+    }
+    public function confirmPublishMateri(){
+        $this->materi->update([
+            'publish' => true
+        ]);
+        session()->flash('message', 'Successfully');
+        $this->loadMateri('publish');
     }
 }
