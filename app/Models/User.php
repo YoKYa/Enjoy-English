@@ -28,7 +28,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+        public function score()
+    {
+        return $this->hasMany(Score::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -29,6 +29,7 @@ class Answer extends Component
         $this->dua=null ;
         $this->tiga=null;
         $this->empat=null;
+        $this->no = 1;
         $this->emit('loadMateri');
     }
     public function selectTypeAnswer($type) {
@@ -41,7 +42,6 @@ class Answer extends Component
     }
     public function selectTypeData($type) {
         $this->toggleTypeData = $type;
-
     }
     public function loadAnswer($no = null){
         if ($no == null) {

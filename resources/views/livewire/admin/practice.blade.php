@@ -30,7 +30,16 @@
                         $l = $question->line;
                         @endphp
                         <div class="w-full h-0"></div>
-                        <div>{{ $question->data }}</div>
+                        @if ($question->type == 'text')
+                        <div>{{ $question->data }}</div>&nbsp;
+                        @elseif($question->type == 'picture')
+                        <img class="w-48 mx-2" src="{{ asset('storage/'.$question->data) }}" alt="">
+                        @elseif($question->type == 'audio')
+                        <audio controls class="mx-4 my-1">
+                            <source src="{{ asset('storage/'.$question->data) }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        @endif
                         @else
                         @if ($question->type == 'text')
                         <div>{{ $question->data }}</div>&nbsp;

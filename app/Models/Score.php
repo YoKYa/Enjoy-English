@@ -5,21 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class Score extends Model
 {
+    protected $fillable = ['score','user_id', 'materi_id'];
     use HasFactory;
-    protected $fillable = ['materi_id'];
     public function materi()
     {
         return $this->belongsTo(Materi::class);
     }
-     public function question()
+    public function user()
     {
-        return $this->hasMany(Question::class);
-    }
-
-    public function answer()
-    {
-        return $this->hasMany(Answer::class);
+        return $this->belongsTo(User::class);
     }
 }

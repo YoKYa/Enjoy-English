@@ -19,7 +19,7 @@
                 class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-biru-2 to-biru-3">
                 <div class="mt-4 mb-1 mx-4 flex justify-between">
                     <div class="uppercase">Materi {{++$no }}</div>
-                    <div>High Score : 100</div>
+                    <div>High Score : {{ $this->getHighScore($materi->id) ?? 'Belum Test' }} </div>
                 </div>
                 <h5
                     class="mt-8 mx-4 mb-2 block font-sans text-2xl leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -32,11 +32,11 @@
                 </p>
             </div>
             <div class="p-6 pt-0">
-                <a href="{{ route('admin.lessons', $materi->slug) }}"
+                <a href="{{ route('user.lessons', $materi->slug) }}"
                     class="py-2 px-6 hover:bg-green-800 shadow-md duration-100 ease-in-out bg-green-600 rounded-lg text-white">Lesson</a>
-                <a href="{{ route('admin.practice', $materi->slug) }}"
+                <a href="{{ route('user.practices', $materi->slug) }}"
                     class="py-2 px-6 hover:bg-blue-800 shadow-md duration-100 ease-in-out bg-blue-600 rounded-lg text-white">Practice</a>
-                <a href="{{ route('admin.test', $materi->slug) }}"
+                <a href="{{ route('user.tests', $materi->slug) }}"
                     class="py-2 px-6 hover:bg-orange-800 shadow-md duration-100 ease-in-out bg-orange-600 rounded-lg text-white">Test</a>
             </div>
         </div>

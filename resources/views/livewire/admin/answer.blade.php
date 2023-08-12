@@ -195,33 +195,33 @@
                         <div class="flex items-center justify-center my-2 ">
                             <div
                                 class="flex items-center justify-center w-10 h-10 text-lg border border-gray-300 rounded">
-                                1</div>
+                                5</div>
                             <div class="text-lg"> -> </div>
-                            <input type="number" min="5" max="8" wire:model="satu"
+                            <input type="number" min="1" max="4" wire:model="satu"
                                 class="flex items-center justify-center h-10 text-lg border border-gray-300 rounded w-15" />
                         </div>
                         <div class="flex items-center justify-center my-2 ">
                             <div
                                 class="flex items-center justify-center w-10 h-10 text-lg border border-gray-300 rounded">
-                                2</div>
+                                6</div>
                             <div class="text-lg"> -> </div>
-                            <input type="number" min="5" max="8" wire:model="dua"
+                            <input type="number" min="1" max="4" wire:model="dua"
                                 class="flex items-center justify-center h-10 text-lg border border-gray-300 rounded w-15" />
                         </div>
                         <div class="flex items-center justify-center my-2 ">
                             <div
                                 class="flex items-center justify-center w-10 h-10 text-lg border border-gray-300 rounded">
-                                3</div>
+                                7</div>
                             <div class="text-lg"> -> </div>
-                            <input type="number" min="5" max="8" wire:model="tiga"
+                            <input type="number" min="1" max="4" wire:model="tiga"
                                 class="flex items-center justify-center h-10 text-lg border border-gray-300 rounded w-15" />
                         </div>
                         <div class="flex items-center justify-center my-2 ">
                             <div
                                 class="flex items-center justify-center w-10 h-10 text-lg border border-gray-300 rounded">
-                                4</div>
+                                8</div>
                             <div class="text-lg"> -> </div>
-                            <input type="number" min="5" max="8" wire:model="empat"
+                            <input type="number" min="1" max="4" wire:model="empat"
                                 class="flex items-center justify-center h-10 text-lg border border-gray-300 rounded w-15" />
                         </div>
                         <button class="w-full p-2 mt-4 text-white bg-blue-600 rounded"

@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\{Materi, Topics};
+use App\Http\Livewire\{Materi, Practices, Topics, Lessons as UserLessons, Tests};
 use App\Http\Livewire\Admin\{Users, Admin, Lessons, Materi as AdminMateri, Practice, Test};
 
 Route::get('/', function () {
@@ -17,7 +17,10 @@ Route::middleware([
     });
     // Route User
     Route::get('/topics', Topics::class)->name('topics');
-    Route::get('/topics/{id}', Materi::class)->name('materi');
+    Route::get('/topic/{id}', Materi::class)->name('materi');
+    Route::get('/lesson/{slug}', UserLessons::class)->name('user.lessons');
+    Route::get('/practice/{slug}', Practices::class)->name('user.practices');
+    Route::get('/test/{slug}', Tests::class)->name('user.tests');  
     
     // Route Admin
     Route::prefix('admin')->group(function () {
@@ -27,6 +30,5 @@ Route::middleware([
         Route::get('/lessons/{slug}', Lessons::class)->name('admin.lessons');
         Route::get('/practice/{slug}', Practice::class)->name('admin.practice');
         Route::get('/test/{slug}', Test::class)->name('admin.test');
-        
     });
 });

@@ -76,6 +76,7 @@ class Panswer extends Component
         }else if ($this->typeAnswer == 'text') {
             $this->data = strtoupper($this->data);
         }
+        
         $answer = [
             "practice_id"       => $this->practiceId,
             "nomor"             => $this->no,
@@ -92,6 +93,9 @@ class Panswer extends Component
         ])->validateWithBag('add');
        
         ModelsPanswer::create($answer);
+        if ($this->type == 2 || $this->type == 3) {
+            $this->no++;
+        }
         $this->data = '';
         $this->pict = null;
         $this->audio = null;

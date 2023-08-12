@@ -25,4 +25,8 @@ class Materi extends Model
     {
         return $this->hasMany(Test::class);
     }
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
 }

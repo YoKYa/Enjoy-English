@@ -1,5 +1,4 @@
 <div>
-
     <x-slot name="header">
         {{-- Breadcrumbs --}}
         @if (Route::current()->getName() != 'admin')

@@ -25,10 +25,10 @@
 </head>
 
 <body>
-	<div class="flex w-full h-screen fixed">
+	<div class="fixed flex w-full h-screen">
 		@livewire('navigation-menu')
 
-		<div class="w-3/4 bg-white p-8 overflow-y-auto">
+		<div class="w-3/4 p-8 overflow-y-auto bg-white">
 			<x-banner />
 
 			@if (isset($header))

@@ -3,7 +3,7 @@
     {{ Breadcrumbs::render('admin.materi', $topic->id) }}
 
     @push('pageTitle', "Admin - $topic->name - ")
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
         <div class="text-xl uppercase">{{ $topic->name }}</div>
         <x-add-materi wire:click='addMateri'>
             <x-slot name="name">
@@ -12,23 +12,23 @@
             <x-slot name="form">
                 <input type="text" wire:model='userId' hidden>
                 <!-- Title -->
-                <div class="col-span-6 sm:col-span-4 mt-2">
+                <div class="col-span-6 mt-2 sm:col-span-4">
                     <x-label for="title" value="{{ __('Title') }}" />
-                    <x-input id="title" type="text" class="mt-1 block w-full" wire:model.defer="title" required
+                    <x-input id="title" type="text" class="block w-full mt-1" wire:model.defer="title" required
                         autocomplete="title" />
                     <x-input-error for="title" class="mt-2" />
                 </div>
-                <div class="col-span-6 sm:col-span-4 mt-2">
+                <div class="col-span-6 mt-2 sm:col-span-4">
                     <x-label for="description" value="{{ __('Description') }}" />
                     <textarea id="description" type="textarea"
-                        class="mt-1 block w-full shadow-sm rounded-lg border-gray-300" wire:model.defer="description"
+                        class="block w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model.defer="description"
                         required autocomplete="description"> </textarea>
                     <x-input-error for="description" class="mt-2" />
                 </div>
                 <!-- Order -->
-                <div class="col-span-6 sm:col-span-4 mt-2">
+                <div class="col-span-6 mt-2 sm:col-span-4">
                     <x-label for="order" value="{{ __('Order') }}" />
-                    <x-input id="order" type="number" class="mt-1 block w-full" wire:model.defer="order" required
+                    <x-input id="order" type="number" class="block w-full mt-1" wire:model.defer="order" required
                         autocomplete="order" />
                     <x-input-error for="order" class="mt-2" />
                 </div>
@@ -57,18 +57,18 @@
     </div>
 
     @if (session()->has('message'))
-    <div class="text-green-900 bg-green-400 px-4 py-2 my-4 rounded-lg">
+    <div class="px-4 py-2 my-4 text-green-900 bg-green-400 rounded-lg">
         {{ session('message') }}
     </div>
     @endif
-    <div class="border-2 border-gray-500 shadow rounded-lg h-auto p-8 grid grid-cols-2 gap-4">
+    <div class="grid h-auto grid-cols-2 gap-4 p-8 border-2 border-gray-500 rounded-lg shadow">
         @php $no = 0 @endphp
         @foreach ($materis as $materi)
-        <div class="w-full p-4 rounded-lg border-gray-400 border-2 shadow-lg hover:scale-105 duration-150 ease-in-out">
+        <div class="w-full p-4 duration-150 ease-in-out border-2 border-gray-400 rounded-lg shadow-lg hover:scale-105">
             <div class="flex justify-between">
-                <div class="p-2 uppercase underline">({{ $materi->order }}) Materi {{++$no }} </div>
+                <div class="p-2 underline uppercase">({{ $materi->order }}) Materi {{++$no }} </div>
                 <div class="flex">
-                    <div class=" text-white p-2 rounded-md w-10 h-10">
+                    <div class="w-10 h-10 p-2 text-white rounded-md ">
                         <button class="w-6 h-6" wire:click='editMateri({{ $materi->id }})'>
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -88,7 +88,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class=" text-white p-2 rounded-md w-10 h-10">
+                    <div class="w-10 h-10 p-2 text-white rounded-md ">
                         <button class="w-6 h-6" wire:click='deleteMateri({{ $materi->id }})'>
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -112,7 +112,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class=" text-white p-2 rounded-md w-10 h-10">
+                    <div class="w-10 h-10 p-2 text-white rounded-md ">
                         @if ($materi->publish == false)
                         <button class="w-6 h-6" wire:click='publishMateri({{ $materi->id }})'>
                             <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg"
@@ -137,48 +137,48 @@
                     </div>
                 </div>
             </div>
-            <div class="text-2xl text-gray-700 my-5 p-2 uppercase">{{ $materi->title }}</div>
+            <div class="p-2 my-5 text-2xl text-gray-700 uppercase">{{ $materi->title }}</div>
             <div class="flex justify-between">
                 <a href="{{ route('admin.lessons', $materi->slug) }}"
-                    class="py-2 px-6 hover:bg-green-800 shadow-md duration-100 ease-in-out bg-green-600 rounded-lg text-white">Lesson</a>
+                    class="px-6 py-2 text-white duration-100 ease-in-out bg-green-600 rounded-lg shadow-md hover:bg-green-800">Lesson</a>
                 <a href="{{ route('admin.practice', $materi->slug) }}"
-                    class="py-2 px-6 hover:bg-blue-800 shadow-md duration-100 ease-in-out bg-blue-600 rounded-lg text-white">Practice</a>
+                    class="px-6 py-2 text-white duration-100 ease-in-out bg-blue-600 rounded-lg shadow-md hover:bg-blue-800">Practice</a>
                 <a href="{{ route('admin.test', $materi->slug) }}"
-                    class="py-2 px-6 hover:bg-orange-800 shadow-md duration-100 ease-in-out bg-orange-600 rounded-lg text-white">Test</a>
+                    class="px-6 py-2 text-white duration-100 ease-in-out bg-orange-600 rounded-lg shadow-md hover:bg-orange-800">Test</a>
             </div>
         </div>
         @endforeach
     </div>
-    <x-edit-materi class="text-white p-2 rounded-md">
+    <x-edit-materi class="p-2 text-white rounded-md">
         <x-slot name="editname">
             Edit Materi
         </x-slot>
         <x-slot name="editform">
             <!-- Title -->
-            <div class="col-span-6 sm:col-span-4 mt-2">
+            <div class="col-span-6 mt-2 sm:col-span-4">
                 <x-label for="title" value="{{ __('Title') }}" />
-                <x-input id="title" type="text" class="mt-1 block w-full" wire:model.defer="title" required
+                <x-input id="title" type="text" class="block w-full mt-1" wire:model.defer="title" required
                     autocomplete="title" />
                 <x-input-error for="title" class="mt-2" />
             </div>
-            <div class="col-span-6 sm:col-span-4 mt-2">
+            <div class="col-span-6 mt-2 sm:col-span-4">
                 <x-label for="description" value="{{ __('Description') }}" />
                 <textarea id="description" type="textarea"
-                    class="mt-1 block w-full shadow-sm rounded-lg border-gray-300" wire:model.defer="description"
+                    class="block w-full mt-1 border-gray-300 rounded-lg shadow-sm" wire:model.defer="description"
                     required autocomplete="description"> </textarea>
                 <x-input-error for="description" class="mt-2" />
             </div>
             <!-- Order -->
-            <div class="col-span-6 sm:col-span-4 mt-2">
+            <div class="col-span-6 mt-2 sm:col-span-4">
                 <x-label for="order" value="{{ __('Order') }}" />
-                <x-input id="order" type="number" class="mt-1 block w-full" wire:model.defer="order" required
+                <x-input id="order" type="number" class="block w-full mt-1" wire:model.defer="order" required
                     autocomplete="order" />
                 <x-input-error for="order" class="mt-2" />
             </div>
         </x-slot>
 
     </x-edit-materi>
-    <x-delete-materi class="text-white p-2 rounded-md">
+    <x-delete-materi class="p-2 text-white rounded-md">
         <x-slot name="name">
             Delete Materi
         </x-slot>
@@ -189,7 +189,7 @@
             @endisset
         </x-slot>
     </x-delete-materi>
-    <x-publish-materi class="text-white p-2 rounded-md">
+    <x-publish-materi class="p-2 text-white rounded-md">
         <x-slot name="name">
             Publish Materi
         </x-slot>

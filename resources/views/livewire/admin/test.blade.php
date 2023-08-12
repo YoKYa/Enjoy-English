@@ -64,8 +64,6 @@
                                     <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                         @if ($this->status($tests->id))<div
                                             class="inline-flex items-center px-3 py-1 rounded-full text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
-
-
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5"
