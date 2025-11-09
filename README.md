@@ -1,15 +1,16 @@
 # 📘 EnjoyEnglish — Interactive English Learning App
 
-EnjoyEnglish adalah aplikasi pembelajaran bahasa Inggris yang dirancang untuk membantu pengguna mempelajari bahasa secara interaktif melalui topik sehari‑hari.  
+EnjoyEnglish adalah aplikasi pembelajaran bahasa Inggris yang dirancang untuk membantu pengguna mempelajari bahasa secara interaktif melalui topik sehari-hari.  
 Aplikasi ini dibuat dengan fokus pada kemudahan penggunaan, tampilan yang simple, serta akses topik pembelajaran yang jelas dan terstruktur.
 
 ---
 
 ## ✨ Fitur Utama
 
-- ✅ Login & Register (Autentikasi User)
-- ✅ Pemilihan Topik Pembelajaran
-- ✅ Halaman Profil untuk mengelola data pengguna
+- ✅ Login & Register (Manajemen akun pengguna)
+- ✅ Dashboard dengan daftar topik pembelajaran
+- ✅ Profil user untuk melihat informasi pengguna
+- ✅ Navigasi sederhana & user-friendly
 
 ---
 
@@ -17,7 +18,7 @@ Aplikasi ini dibuat dengan fokus pada kemudahan penggunaan, tampilan yang simple
 
 | Komponen | Teknologi |
 |----------|----------|
-| Framework | Laravel / Livewire *(jika menggunakan)* |
+| Backend  | **Laravel (tanpa Livewire)** |
 | Frontend | HTML, CSS, JavaScript |
 | Database | MySQL / MariaDB |
 
